@@ -17,12 +17,14 @@ export default function Home() {
         <h1 className="text-2xl font-bold text-blue-600">Megora</h1>
 
         <div className="flex items-center gap-6">
-          <Link href="/" className="hover:text-blue-600">Нүүр</Link>
-          <Link href="/subjects" className="hover:text-blue-600">Хичээлүүд</Link>
-          <Link href="/exams" className="hover:text-blue-600">Mock Test</Link>
-          <Link href="/yesh-test" className="hover:text-blue-600">ЭЕШ Test</Link>
+          <Link href="/">Нүүр</Link>
+          <Link href="/subjects">Хичээлүүд</Link>
+          <Link href="/exams">Mock Test</Link>
+          <Link href="/yesh-test">ЭЕШ Test</Link>
 
-          {!isSignedIn ? (
+          {isSignedIn ? (
+            <UserButton />
+          ) : (
             <>
               <SignInButton mode="modal">
                 <button className="bg-blue-600 text-white px-5 py-2 rounded-xl">
@@ -36,8 +38,6 @@ export default function Home() {
                 </button>
               </SignUpButton>
             </>
-          ) : (
-            <UserButton />
           )}
         </div>
       </nav>
@@ -50,35 +50,6 @@ export default function Home() {
             хамгийн хялбар суралцах платформ
           </span>
         </h2>
-
-        <p className="text-gray-600 text-lg mt-6">
-          Онол, тест, тайлбар бүгд нэг дор.
-          <br />
-          Илүү ухаалаг суралцъя.
-        </p>
-
-        <div className="mt-10 flex justify-center gap-4 flex-wrap">
-          <Link
-            href="/subjects"
-            className="bg-blue-600 text-white px-8 py-3 rounded-xl hover:bg-blue-700"
-          >
-            Хичээл эхлэх
-          </Link>
-
-          <Link
-            href="/exams"
-            className="border px-8 py-3 rounded-xl hover:bg-gray-100"
-          >
-            Mock Test
-          </Link>
-
-          <Link
-            href="/yesh-test"
-            className="border px-8 py-3 rounded-xl hover:bg-gray-100"
-          >
-            ЭЕШ Test
-          </Link>
-        </div>
       </section>
     </main>
   );
