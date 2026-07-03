@@ -52,7 +52,7 @@ export default function SocialPage() {
 
           {/* Mock Test */}
           <Link
-            href="/exams"
+                href="/subjects/social/mock"
             className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
           >
             <h2 className="text-xl font-bold">📝 Mock Test</h2>
