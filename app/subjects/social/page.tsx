@@ -3,42 +3,10 @@
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 
-const theories = [
-  {
-    title: "Бүтэц-чиг үүргийн онол",
-    scholar: "Э.Дюркгейм, Т.Парсонс, Р.Мертон",
-    href: "/subjects/social/theories/functionalism",
-  },
-  {
-    title: "Мөргөлдөөний онол",
-    scholar: "К.Маркс, Р.Дарендорф",
-    href: "/subjects/social/theories/conflict",
-  },
-  {
-    title: "Бэлгэдлийн харилцан үйлдлийн онол",
-    scholar: "Ж.Мид, Ч.Кули",
-    href: "/subjects/social/theories/symbolic",
-  },
-  {
-    title: "Формацын онол",
-    scholar: "К.Маркс",
-    href: "/subjects/social/theories/formation",
-  },
-  {
-    title: "Иргэншлийн онол",
-    scholar: "А.Тойнби",
-    href: "/subjects/social/theories/civilization",
-  },
-  {
-    title: "Элитийн онол",
-    scholar: "В.Парето, Г.Моска",
-    href: "/subjects/social/theories/elite",
-  },
-];
-
-export default function TheoriesPage() {
+export default function SocialPage() {
   return (
     <main className="min-h-screen bg-gray-50">
+      {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-6 bg-white border-b">
         <Link href="/" className="text-2xl font-bold text-blue-600">
           Megora
@@ -46,27 +14,75 @@ export default function TheoriesPage() {
         <UserButton />
       </nav>
 
+      {/* Header */}
       <section className="max-w-6xl mx-auto px-8 py-12">
-        <h1 className="text-4xl font-bold">📘 Нийгмийн онолууд</h1>
+        <Link href="/subjects" className="text-blue-600">
+          ← Буцах
+        </Link>
 
+        <h1 className="text-4xl font-bold mt-6">Нийгэм судлал</h1>
         <p className="text-gray-600 mt-2">
-          ЭЕШ-д түгээмэл гардаг онолууд ба эрдэмтдийн гол санаанууд.
+          Хичээлүүд, онолууд, mock test болон ЭЕШ бэлтгэл
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mt-10">
-          {theories.map((theory) => (
-            <Link
-              key={theory.title}
-              href={theory.href}
-              className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
-            >
-              <h2 className="text-xl font-bold">{theory.title}</h2>
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
 
-              <p className="text-gray-500 mt-2">
-                👨‍🏫 {theory.scholar}
-              </p>
-            </Link>
-          ))}
+          {/* Lessons */}
+          <Link
+            href="/subjects/social/lessons"
+            className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+          >
+            <h2 className="text-xl font-bold">📚 Хичээлүүд</h2>
+            <p className="text-gray-500 mt-2">
+              Нийгмийн бүтэц, нийгэмшил, давхраажилт, гажуудал гэх мэт
+            </p>
+          </Link>
+
+          {/* Theories */}
+          <Link
+            href="/subjects/social/theories"
+            className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+          >
+            <h2 className="text-xl font-bold">🧠 Нийгмийн онолууд</h2>
+            <p className="text-gray-500 mt-2">
+              Functionalism, Conflict, Symbolic, Formation гэх мэт
+            </p>
+          </Link>
+
+          {/* Mock Test */}
+          <Link
+            href="/subjects/social/mock"
+            className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+          >
+            <h2 className="text-xl font-bold">📝 Mock Test</h2>
+            <p className="text-gray-500 mt-2">
+              20 минутын хугацаатай practice тестүүд
+            </p>
+          </Link>
+
+          {/* YESH */}
+          <Link
+            href="/subjects/social/yesh"
+            className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition"
+          >
+            <h2 className="text-xl font-bold">🎯 ЭЕШ Test</h2>
+            <p className="text-gray-500 mt-2">
+              ЭЕШ загвар тестүүд болон бодит шалгалтын формат
+            </p>
+          </Link>
+
+          {/* Premium */}
+          <Link
+            href="/premium"
+            className="bg-yellow-50 border border-yellow-300 p-6 rounded-2xl shadow hover:shadow-lg transition"
+          >
+            <h2 className="text-xl font-bold">🔒 Premium</h2>
+            <p className="text-gray-500 mt-2">
+              Advanced mock test, тайлбартай хариулт, premium материал
+            </p>
+          </Link>
+
         </div>
       </section>
     </main>
